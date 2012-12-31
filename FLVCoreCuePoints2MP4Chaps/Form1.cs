@@ -127,5 +127,38 @@ namespace FLVCoreCuePoints2MP4Chaps
             }
             else MessageBox.Show("Table is empty, no Chaptermarks to save");
         }
+
+        private void buttonSaveMP4Chaps_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewOUT.RowCount > 0)
+            {
+                SaveFileDialog speichern = new SaveFileDialog();
+                speichern.Title = "Save Chapters MP4Muxer-compatible";
+                speichern.FileName = "mp4.chap";
+
+                if (speichern.ShowDialog() == DialogResult.OK)
+                {
+                    System.IO.StreamWriter objWriter;
+
+                    objWriter = new System.IO.StreamWriter(speichern.FileName);
+
+                    int count = dataGridViewOUT.Rows.Count;
+
+                    for (int row = 0; row < count; row++)
+                    {
+                        //CHAPTER01=00:00:00.000
+                        //CHAPTER01NAME=Intro
+
+                        String chapterID ="";
+                        if(row<10) chapterID = "0"+(row+1).ToString();
+                        else chapterID = (row+1).ToString();
+                        objWriter.WriteLine("CHAPTER" + chapterID + "=" + dataGridViewOUT.Rows[row].Cells[0].Value.ToString());
+                        objWriter.WriteLine("CHAPTER" + chapterID + "NAME="+dataGridViewOUT.Rows[row].Cells[1].Value.ToString());
+                    }
+                    objWriter.Close();
+                }
+            }
+            else MessageBox.Show("Table is empty, no Chaptermarks to save");
+        }
     }
 }

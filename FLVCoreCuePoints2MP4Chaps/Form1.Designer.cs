@@ -31,13 +31,14 @@
             this.groupBox_Input = new System.Windows.Forms.GroupBox();
             this.buttonLoadXML = new System.Windows.Forms.Button();
             this.dataGridViewIN = new System.Windows.Forms.DataGridView();
+            this.ColTimeFrame = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_Output = new System.Windows.Forms.GroupBox();
             this.buttonSaveAuphonicChaps = new System.Windows.Forms.Button();
             this.dataGridViewOUT = new System.Windows.Forms.DataGridView();
-            this.ColTimeFrame = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonSaveMP4Chaps = new System.Windows.Forms.Button();
             this.groupBox_Input.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIN)).BeginInit();
             this.groupBox_Output.SuspendLayout();
@@ -77,8 +78,20 @@
             this.dataGridViewIN.Size = new System.Drawing.Size(468, 647);
             this.dataGridViewIN.TabIndex = 0;
             // 
+            // ColTimeFrame
+            // 
+            this.ColTimeFrame.HeaderText = "Time (in ms)";
+            this.ColTimeFrame.Name = "ColTimeFrame";
+            // 
+            // ColText
+            // 
+            this.ColText.HeaderText = "Chapter-Name";
+            this.ColText.Name = "ColText";
+            this.ColText.Width = 300;
+            // 
             // groupBox_Output
             // 
+            this.groupBox_Output.Controls.Add(this.buttonSaveMP4Chaps);
             this.groupBox_Output.Controls.Add(this.buttonSaveAuphonicChaps);
             this.groupBox_Output.Controls.Add(this.dataGridViewOUT);
             this.groupBox_Output.Location = new System.Drawing.Point(772, 12);
@@ -112,17 +125,6 @@
             this.dataGridViewOUT.Size = new System.Drawing.Size(468, 647);
             this.dataGridViewOUT.TabIndex = 1;
             // 
-            // ColTimeFrame
-            // 
-            this.ColTimeFrame.HeaderText = "Time (in ms)";
-            this.ColTimeFrame.Name = "ColTimeFrame";
-            // 
-            // ColText
-            // 
-            this.ColText.HeaderText = "Chapter-Name";
-            this.ColText.Name = "ColText";
-            this.ColText.Width = 300;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "Timecode (hh:mm:ss.ms)";
@@ -133,6 +135,16 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Chapter-Name";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.Width = 300;
+            // 
+            // buttonSaveMP4Chaps
+            // 
+            this.buttonSaveMP4Chaps.Location = new System.Drawing.Point(161, 18);
+            this.buttonSaveMP4Chaps.Name = "buttonSaveMP4Chaps";
+            this.buttonSaveMP4Chaps.Size = new System.Drawing.Size(121, 23);
+            this.buttonSaveMP4Chaps.TabIndex = 3;
+            this.buttonSaveMP4Chaps.Text = "Save MP4 Chapters";
+            this.buttonSaveMP4Chaps.UseVisualStyleBackColor = true;
+            this.buttonSaveMP4Chaps.Click += new System.EventHandler(this.buttonSaveMP4Chaps_Click);
             // 
             // Form1
             // 
@@ -163,6 +175,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColText;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Button buttonSaveMP4Chaps;
     }
 }
 
