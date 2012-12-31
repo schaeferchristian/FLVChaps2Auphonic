@@ -146,15 +146,56 @@ namespace FLVCoreCuePoints2MP4Chaps
 
                     for (int row = 0; row < count; row++)
                     {
-                        //CHAPTER01=00:00:00.000
-                        //CHAPTER01NAME=Intro
-
                         String chapterID ="";
                         if(row<10) chapterID = "0"+(row+1).ToString();
                         else chapterID = (row+1).ToString();
                         objWriter.WriteLine("CHAPTER" + chapterID + "=" + dataGridViewOUT.Rows[row].Cells[0].Value.ToString());
                         objWriter.WriteLine("CHAPTER" + chapterID + "NAME="+dataGridViewOUT.Rows[row].Cells[1].Value.ToString());
                     }
+                    objWriter.Close();
+                }
+            }
+            else MessageBox.Show("Table is empty, no Chaptermarks to save");
+        }
+
+        private void buttonSaveMP4Apple_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewOUT.RowCount > 0)
+            {
+                SaveFileDialog speichern = new SaveFileDialog();
+                speichern.Title = "Save Chapters Apple-compatible MP4 ttxt";
+                speichern.FileName = "appleChaps.ttxt";
+
+                if (speichern.ShowDialog() == DialogResult.OK)
+                {
+                    System.IO.StreamWriter objWriter;
+
+                    objWriter = new System.IO.StreamWriter(speichern.FileName);
+
+                    objWriter.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+                    objWriter.WriteLine("<!-- GPAC 3GPP Text Stream -->");
+                    objWriter.WriteLine("<TextStream version=\"1.1\">");
+                    objWriter.WriteLine("<TextStreamHeader width=\"480\" height=\"368\" layer=\"0\" translation_x=\"0\" translation_y=\"0\">");
+                    objWriter.WriteLine("<TextSampleDescription horizontalJustification=\"center\" verticalJustification=\"bottom\" backColor=\"0 0 0 0\" verticalText=\"no\" fillTextRegion=\"no\" continuousKaraoke=\"no\" scroll=\"None\">");
+                    objWriter.WriteLine("<FontTable>");
+                    objWriter.WriteLine("<FontTableEntry fontName=\"Arial\" fontID=\"1\"/>");
+                    objWriter.WriteLine("</FontTable>");
+                    objWriter.WriteLine("<TextBox top=\"0\" left=\"0\" bottom=\"368\" right=\"480\"/>");
+                    objWriter.WriteLine("<Style styles=\"Normal\" fontID=\"1\" fontSize=\"32\" color=\"ff ff ff ff\"/>");
+                    objWriter.WriteLine("</TextSampleDescription>");
+                    objWriter.WriteLine("</TextStreamHeader>");
+
+                    
+
+                    int count = dataGridViewOUT.Rows.Count;
+
+                    for (int row = 0; row < count; row++)
+                    {
+                        objWriter.WriteLine("<TextSample sampleTime=\""+dataGridViewOUT.Rows[row].Cells[0].Value.ToString()+"\">"+dataGridViewOUT.Rows[row].Cells[1].Value.ToString()+"</TextSample>");
+                    }
+
+                    objWriter.WriteLine("</TextStream>");
+                
                     objWriter.Close();
                 }
             }

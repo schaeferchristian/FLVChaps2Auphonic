@@ -39,6 +39,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonSaveMP4Chaps = new System.Windows.Forms.Button();
+            this.buttonSaveMP4Apple = new System.Windows.Forms.Button();
             this.groupBox_Input.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewIN)).BeginInit();
             this.groupBox_Output.SuspendLayout();
@@ -91,6 +92,7 @@
             // 
             // groupBox_Output
             // 
+            this.groupBox_Output.Controls.Add(this.buttonSaveMP4Apple);
             this.groupBox_Output.Controls.Add(this.buttonSaveMP4Chaps);
             this.groupBox_Output.Controls.Add(this.buttonSaveAuphonicChaps);
             this.groupBox_Output.Controls.Add(this.dataGridViewOUT);
@@ -146,6 +148,16 @@
             this.buttonSaveMP4Chaps.UseVisualStyleBackColor = true;
             this.buttonSaveMP4Chaps.Click += new System.EventHandler(this.buttonSaveMP4Chaps_Click);
             // 
+            // buttonSaveMP4Apple
+            // 
+            this.buttonSaveMP4Apple.Location = new System.Drawing.Point(304, 18);
+            this.buttonSaveMP4Apple.Name = "buttonSaveMP4Apple";
+            this.buttonSaveMP4Apple.Size = new System.Drawing.Size(127, 23);
+            this.buttonSaveMP4Apple.TabIndex = 4;
+            this.buttonSaveMP4Apple.Text = "Save MP4 ttxt (Apple)";
+            this.buttonSaveMP4Apple.UseVisualStyleBackColor = true;
+            this.buttonSaveMP4Apple.Click += new System.EventHandler(this.buttonSaveMP4Apple_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,6 +188,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button buttonSaveMP4Chaps;
+        private System.Windows.Forms.Button buttonSaveMP4Apple;
     }
 }
 
